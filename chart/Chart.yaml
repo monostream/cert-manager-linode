@@ -1,0 +1,7 @@
+apiVersion: v1
+
+name: cert-manager-linode
+description: Linode Cert-Manager Webhook
+
+version: 0.1.0
+appVersion: latest
