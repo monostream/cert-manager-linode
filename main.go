@@ -84,7 +84,7 @@ func (s *linodeSolver) Present(ch *acme.ChallengeRequest) error {
 
 	_, err = c.CreateDomainRecord(context.Background(), domain.ID, linodego.DomainRecordCreateOptions{
 		Type: linodego.RecordTypeTXT,
-		Name: ch.ResolvedFQDN,
+		Name: strings.TrimRight(ch.ResolvedFQDN, "."),
 
 		Target: ch.Key,
 		Weight: &weight,
