@@ -10,12 +10,12 @@ import (
 	"strings"
 
 	"golang.org/x/oauth2"
-	extapi "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1"
 
 	acme "github.com/jetstack/cert-manager/pkg/acme/webhook/apis/acme/v1alpha1"
 	"github.com/jetstack/cert-manager/pkg/acme/webhook/cmd"
 	"github.com/linode/linodego"
 
+	v1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	"k8s.io/client-go/rest"
 )
 
@@ -117,7 +117,7 @@ func (s *linodeSolver) CleanUp(ch *acme.ChallengeRequest) error {
 	return c.DeleteDomainRecord(context.Background(), domain.ID, record.ID)
 }
 
-func loadConfig(cfgJSON *extapi.JSON) (linodeConfig, error) {
+func loadConfig(cfgJSON *v1.JSON) (linodeConfig, error) {
 	cfg := linodeConfig{}
 
 	if cfgJSON == nil {
