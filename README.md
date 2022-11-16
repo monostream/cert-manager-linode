@@ -21,7 +21,7 @@ helm install cert-manager-linode chart/ -n cert-manager
 https://cert-manager.io/docs/configuration/acme/dns01/webhook/
 
 ```yaml
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-prod
@@ -38,5 +38,4 @@ spec:
             solverName: linode
             config:
               apiKey: your-api-key
-
 ```
